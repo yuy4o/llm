@@ -1,0 +1,62 @@
+INFO 08-07 12:53:08 [__init__.py:244] Automatically detected platform cuda.
+INFO 08-07 12:53:11 [api_server.py:1395] vLLM API server version 0.9.2
+INFO 08-07 12:53:11 [cli_args.py:325] non-default args: {'port': 12001, 'api_key': 'empty', 'model': '/data1/llm-models/gemma-3-27b-it', 'trust_remote_code': True, 'max_model_len': 8192, 'enforce_eager': True, 'gpu_memory_utilization': 0.8}
+INFO 08-07 12:53:17 [config.py:841] This model supports multiple tasks: {'reward', 'embed', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 08-07 12:53:17 [config.py:1472] Using max model len 8192
+WARNING 08-07 12:53:17 [cuda.py:102] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 08-07 12:53:17 [api_server.py:268] Started engine process with PID 2409625
+INFO 08-07 12:53:21 [__init__.py:244] Automatically detected platform cuda.
+INFO 08-07 12:53:23 [llm_engine.py:230] Initializing a V0 LLM engine (v0.9.2) with config: model='/data1/llm-models/gemma-3-27b-it', speculative_config=None, tokenizer='/data1/llm-models/gemma-3-27b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='xgrammar', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=None, served_model_name=/data1/llm-models/gemma-3-27b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=False, use_async_output_proc=False, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":[],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":false,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":0,"local_cache_dir":null}, use_cached_outputs=True, 
+INFO 08-07 12:53:24 [cuda.py:363] Using Flash Attention backend.
+INFO 08-07 12:53:35 [parallel_state.py:1076] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 08-07 12:53:35 [model_runner.py:1171] Starting to load model /data1/llm-models/gemma-3-27b-it...
+INFO 08-07 12:53:35 [cuda.py:337] Cannot use FlashAttention-2 backend for head size 72.
+INFO 08-07 12:53:35 [cuda.py:360] Using XFormers backend.
+INFO 08-07 12:53:46 [default_loader.py:272] Loading weights took 10.86 seconds
+INFO 08-07 12:53:47 [model_runner.py:1203] Model loading took 51.4478 GiB and 11.463030 seconds
+WARNING 08-07 12:53:54 [profiling.py:237] The sequence length used for profiling (max_num_batched_tokens / max_num_seqs = 256) is too short to hold the multi-modal embeddings in the worst case (261 tokens in total, out of which {'image': 256} are reserved for multi-modal embeddings). This may cause certain multi-modal inputs to fail during inference, even when the input text is short. To avoid this, you should increase `max_model_len`, reduce `max_num_seqs`, and/or reduce `mm_counts`.
+INFO 08-07 12:53:59 [worker.py:294] Memory profiling takes 12.28 seconds
+INFO 08-07 12:53:59 [worker.py:294] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.80) = 63.31GiB
+INFO 08-07 12:53:59 [worker.py:294] model weights take 51.45GiB; non_torch_memory takes 0.09GiB; PyTorch activation peak memory takes 3.38GiB; the rest of the memory reserved for KV Cache is 8.39GiB.
+INFO 08-07 12:53:59 [executor_base.py:113] # cuda blocks: 1108, # CPU blocks: 528
+INFO 08-07 12:53:59 [executor_base.py:118] Maximum concurrency for 8192 tokens per request: 2.16x
+INFO 08-07 12:54:02 [llm_engine.py:428] init engine (profile, create kv cache, warmup model) took 15.46 seconds
+WARNING 08-07 12:54:02 [config.py:1392] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 08-07 12:54:02 [serving_chat.py:125] Using default chat sampling params from model: {'top_k': 64, 'top_p': 0.95}
+INFO 08-07 12:54:02 [serving_completion.py:72] Using default completion sampling params from model: {'top_k': 64, 'top_p': 0.95}
+INFO 08-07 12:54:02 [api_server.py:1457] Starting vLLM API server 0 on http://0.0.0.0:12001
+INFO 08-07 12:54:02 [launcher.py:29] Available routes are:
+INFO 08-07 12:54:02 [launcher.py:37] Route: /openapi.json, Methods: GET, HEAD
+INFO 08-07 12:54:02 [launcher.py:37] Route: /docs, Methods: GET, HEAD
+INFO 08-07 12:54:02 [launcher.py:37] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 08-07 12:54:02 [launcher.py:37] Route: /redoc, Methods: GET, HEAD
+INFO 08-07 12:54:02 [launcher.py:37] Route: /health, Methods: GET
+INFO 08-07 12:54:02 [launcher.py:37] Route: /load, Methods: GET
+INFO 08-07 12:54:02 [launcher.py:37] Route: /ping, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /ping, Methods: GET
+INFO 08-07 12:54:02 [launcher.py:37] Route: /tokenize, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /detokenize, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/models, Methods: GET
+INFO 08-07 12:54:02 [launcher.py:37] Route: /version, Methods: GET
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/chat/completions, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/completions, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/embeddings, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /pooling, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /classify, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /score, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/score, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/audio/transcriptions, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/audio/translations, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /rerank, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v1/rerank, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /v2/rerank, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /invocations, Methods: POST
+INFO 08-07 12:54:02 [launcher.py:37] Route: /metrics, Methods: GET
+INFO:     172.27.221.3:42064 - "GET /v1/models HTTP/1.1" 200 OK
+INFO 08-07 13:19:44 [chat_utils.py:444] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+INFO 08-07 13:19:44 [logger.py:43] Received request chatcmpl-115a6e3aaf334d098d0069caec9cb0b0: prompt: '<bos><start_of_turn>user\nhi<end_of_turn>\n<start_of_turn>model\n', params: SamplingParams(n=1, presence_penalty=0.0, frequency_penalty=0.0, repetition_penalty=1.0, temperature=0.7, top_p=0.95, top_k=64, min_p=0.0, seed=None, stop=[], stop_token_ids=[], bad_words=[], include_stop_str_in_output=False, ignore_eos=False, max_tokens=1000, min_tokens=0, logprobs=None, prompt_logprobs=None, skip_special_tokens=True, spaces_between_special_tokens=True, truncate_prompt_tokens=None, guided_decoding=None, extra_args=None), prompt_token_ids: None, prompt_embeds shape: None, lora_request: None, prompt_adapter_request: None.
+INFO 08-07 13:19:44 [engine.py:317] Added request chatcmpl-115a6e3aaf334d098d0069caec9cb0b0.
+INFO 08-07 13:19:49 [metrics.py:417] Avg prompt throughput: 2.0 tokens/s, Avg generation throughput: 9.4 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.4%, CPU KV cache usage: 0.0%.
+INFO 08-07 13:19:54 [metrics.py:417] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 14.3 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.
+INFO:     172.27.221.3:42064 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO 08-07 13:20:04 [metrics.py:417] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.

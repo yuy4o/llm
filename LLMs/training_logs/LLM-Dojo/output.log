@@ -1,0 +1,279 @@
+[2024-11-13 17:15:13,942] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-13 17:15:14,799] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-11-13 17:15:14,831] [INFO] [runner.py:568:main] cmd = /data/jiangyy/miniconda3/envs/dojo/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMiwgM119 --master_addr=127.0.0.1 --master_port=29507 --enable_each_rank_log=None main_train.py --train_data_path /data/jiangyy/LLM-Dojo/data/sft_data.jsonl --model_name_or_path /data/jiangyy/Qwen2-7B --max_len 1024 --num_train_epochs 604800 --per_device_train_batch_size 8 --per_device_eval_batch_size 1 --gradient_accumulation_steps 4 --task_type sft --train_mode qlora --output_dir . --save_strategy steps --save_steps 500 --save_total_limit 5 --learning_rate 2e-6 --warmup_steps 10 --logging_steps 1 --lr_scheduler_type cosine_with_min_lr --gradient_checkpointing True --report_to wandb --deepspeed ./train_args/deepspeed_config/ds_config_zero2.json --bf16 True
+[2024-11-13 17:15:15,888] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-13 17:15:16,710] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [2, 3]}
+[2024-11-13 17:15:16,710] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-11-13 17:15:16,710] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-11-13 17:15:16,710] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-11-13 17:15:16,710] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=2,3
+[2024-11-13 17:15:19,042] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-13 17:15:19,130] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-13 17:15:19,215] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-11-13 17:15:19,215] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-11-13 17:15:19,294] [INFO] [comm.py:637:init_distributed] cdb=None
+`low_cpu_mem_usage` was None, now default to True since model is quantized.
+`low_cpu_mem_usage` was None, now default to True since model is quantized.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.15s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.14it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.12it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.27it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.21it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.13it/s]
+2024-11-13 17:15:25.531 | INFO     | __main__:log_out:180 - train_args:TrainArgument(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=./train_args/deepspeed_config/ds_config_zero2.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=4,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./runs/Nov13_17-15-19_youln-a100-4.novalocal,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine_with_min_lr,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=604800,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=.,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=1,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=.,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=5,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=10,
+weight_decay=0.0,
+)
+2024-11-13 17:15:25.531 | INFO     | __main__:log_out:181 - common_args:CommonArgs(train_args_path='sft_args', max_len=1024, train_data_path='/data/jiangyy/LLM-Dojo/data/sft_data.jsonl', model_name_or_path='/data/jiangyy/Qwen2-7B', task_type='sft', train_mode='qlora', use_dora=False, lora_rank=64, lora_alpha=16, lora_dropout=0.05, auto_adapt=True)
+2024-11-13 17:15:25.531 | INFO     | __main__:log_out:182 - vocab_size of tokenizer: 151643
+2024-11-13 17:15:25.531 | INFO     | __main__:log_out:183 - Loading model from base model: /data/jiangyy/Qwen2-7B
+2024-11-13 17:15:25.531 | INFO     | __main__:log_out:184 - Total model params: 4514.45M
+2024-11-13 17:15:25.537 | INFO     | __main__:log_out:185 - memory footprint of model: 7.701932191848755 GB
+2024-11-13 17:15:25.541 | INFO     | __main__:log_out:187 - trainable params: 161,480,704 || all params: 7,777,097,216 || trainable%: 2.0764
+2024-11-13 17:15:25.541 | INFO     | __main__:log_out:192 - Train model with sft task
+2024-11-13 17:15:25.541 | INFO     | __main__:log_out:193 - Train model with qlora
+2024-11-13 17:15:25.541 | INFO     | __main__:log_out:194 - LoRA target module names: ['down_proj', 'v_proj', 'q_proj', 'o_proj', 'k_proj', 'gate_proj', 'up_proj']
+2024-11-13 17:15:25.541 | INFO     | __main__:log_out:195 - Loading data: /data/jiangyy/LLM-Dojo/data/sft_data.jsonl
+2024-11-13 17:15:25.541 | INFO     | __main__:log_out:196 - Training dataset samples:54
+2024-11-13 17:15:25.548 | INFO     | __main__:log_out:198 - Sample 40 of the training set: [151644, 8948, 198, 2610, 525, 264, 10950, 17847, 151645, 198, 151644, 872, 198, 20444, 264, 729, 304, 13027, 429, 23473, 700, 279, 57359, 594, 21495, 369, 264, 2661, 1372, 315, 6978, 13, 151645, 198, 151644, 77091, 198, 750, 281, 35840, 70575, 1445, 1648, 259, 651, 284, 508, 16, 60, 379, 284, 508, 15, 60, 369, 856, 304, 2088, 8739, 1445, 11, 220, 15, 36715, 1173, 1155, 651, 8, 259, 651, 5818, 75, 55297, 369, 326, 15883, 304, 10308, 1155, 651, 488, 379, 11, 379, 488, 259, 651, 7252, 470, 308, 9922, 16, 281, 35840, 70575, 7, 20, 8, 151645, 198], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0].
+2024-11-13 17:15:25.549 | INFO     | __main__:log_out:200 - Sample 40 of the training set: <|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Develop a function in Python that prints out the Pascal's triangle for a given number of rows.<|im_end|>
+<|im_start|>assistant
+def pascal_triangle(n): trow = [1] y = [0] for x in range(max(n, 0)): print(trow) trow=[l+r for l,r in zip(trow + y, y + trow)] return n>=1 pascal_triangle(5)<|im_end|>
+.
+2024-11-13 17:15:25.550 | INFO     | __main__:log_out:198 - Sample 7 of the training set: [151644, 8948, 198, 2610, 525, 264, 10950, 17847, 151645, 198, 151644, 872, 198, 31115, 264, 13027, 2038, 369, 71079, 264, 3910, 369, 264, 3151, 943, 315, 821, 13, 151645, 198, 151644, 77091, 198, 474, 7388, 1159, 312, 707, 45664, 79032, 5478, 22154, 32964, 7, 19485, 1648, 2033, 284, 7388, 670, 7, 19485, 8, 4540, 32964, 284, 312, 37433, 11024, 67, 90, 18, 19732, 59, 67, 90, 18, 19732, 59, 67, 90, 19, 16843, 2033, 2788, 8, 470, 4540, 32964, 421, 1304, 606, 563, 621, 12112, 3817, 563, 1210, 1173, 1337, 33683, 79032, 5478, 22154, 32964, 492, 2136, 7724, 905, 3789, 151645, 198], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0].
+2024-11-13 17:15:25.551 | INFO     | __main__:log_out:200 - Sample 7 of the training set: <|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Generate a Python code for crawling a website for a specific type of data.<|im_end|>
+<|im_start|>assistant
+import requests import re def crawl_website_for_phone_numbers(website): response = requests.get(website) phone_numbers = re.findall('\d{3}-\d{3}-\d{4}', response.text) return phone_numbers if __name__ == '__main__': print(crawl_website_for_phone_numbers('www.example.com'))<|im_end|>
+.
+2024-11-13 17:15:25.552 | INFO     | __main__:log_out:198 - Sample 1 of the training set: [151644, 8948, 198, 2610, 525, 264, 10950, 17847, 151645, 198, 151644, 872, 198, 31115, 264, 13027, 2038, 369, 71079, 264, 3910, 369, 264, 3151, 943, 315, 821, 13, 151645, 198, 151644, 77091, 198, 474, 7388, 1159, 312, 707, 45664, 79032, 5478, 22154, 32964, 7, 19485, 1648, 2033, 284, 7388, 670, 7, 19485, 8, 4540, 32964, 284, 312, 37433, 11024, 67, 90, 18, 19732, 59, 67, 90, 18, 19732, 59, 67, 90, 19, 16843, 2033, 2788, 8, 470, 4540, 32964, 421, 1304, 606, 563, 621, 12112, 3817, 563, 1210, 1173, 1337, 33683, 79032, 5478, 22154, 32964, 492, 2136, 7724, 905, 3789, 151645, 198], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0].
+2024-11-13 17:15:25.553 | INFO     | __main__:log_out:200 - Sample 1 of the training set: <|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Generate a Python code for crawling a website for a specific type of data.<|im_end|>
+<|im_start|>assistant
+import requests import re def crawl_website_for_phone_numbers(website): response = requests.get(website) phone_numbers = re.findall('\d{3}-\d{3}-\d{4}', response.text) return phone_numbers if __name__ == '__main__': print(crawl_website_for_phone_numbers('www.example.com'))<|im_end|>
+.
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-11-13 17:15:26.216 | INFO     | __main__:main:210 - *** starting training ***
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/jiangyy/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/jiangyy/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 0.21328330039978027 seconds
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/jiangyy/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/jiangyy/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 0.2188737392425537 seconds
+/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: c10d::broadcast_: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at ../torch/csrc/autograd/autograd_not_implemented_fallback.cpp:63.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: ERROR api_key not configured (no-tty). call wandb.login(key=[your_api_key])
+Traceback (most recent call last):
+  File "/data/jiangyy/LLM-Dojo/main_train.py", line 224, in <module>
+    main()
+  File "/data/jiangyy/LLM-Dojo/main_train.py", line 211, in main
+    train_result = trainer.train()
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer.py", line 2382, in _inner_training_loop
+    self.control = self.callback_handler.on_train_begin(args, self.state, self.control)
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer_callback.py", line 468, in on_train_begin
+    return self.call_event("on_train_begin", args, state, control)
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer_callback.py", line 518, in call_event
+    result = getattr(callback, event)(
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 911, in on_train_begin
+    self.setup(args, state, model, **kwargs)
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 838, in setup
+    self._wandb.init(
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1270, in init
+    wandb._sentry.reraise(e)
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 161, in reraise
+    raise exc.with_traceback(sys.exc_info()[2])
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1255, in init
+    wi.setup(kwargs)
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 304, in setup
+    wandb_login._login(
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 347, in _login
+    wlogin.prompt_api_key()
+  File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 281, in prompt_api_key
+    raise UsageError("api_key not configured (no-tty). call " + directive)
+wandb.errors.errors.UsageError: api_key not configured (no-tty). call wandb.login(key=[your_api_key])
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/jiangyy/LLM-Dojo/main_train.py", line 224, in <module>
+[rank0]:     main()
+[rank0]:   File "/data/jiangyy/LLM-Dojo/main_train.py", line 211, in main
+[rank0]:     train_result = trainer.train()
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer.py", line 2123, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer.py", line 2382, in _inner_training_loop
+[rank0]:     self.control = self.callback_handler.on_train_begin(args, self.state, self.control)
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer_callback.py", line 468, in on_train_begin
+[rank0]:     return self.call_event("on_train_begin", args, state, control)
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/trainer_callback.py", line 518, in call_event
+[rank0]:     result = getattr(callback, event)(
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 911, in on_train_begin
+[rank0]:     self.setup(args, state, model, **kwargs)
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 838, in setup
+[rank0]:     self._wandb.init(
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1270, in init
+[rank0]:     wandb._sentry.reraise(e)
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 161, in reraise
+[rank0]:     raise exc.with_traceback(sys.exc_info()[2])
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1255, in init
+[rank0]:     wi.setup(kwargs)
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 304, in setup
+[rank0]:     wandb_login._login(
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 347, in _login
+[rank0]:     wlogin.prompt_api_key()
+[rank0]:   File "/data/jiangyy/miniconda3/envs/dojo/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 281, in prompt_api_key
+[rank0]:     raise UsageError("api_key not configured (no-tty). call " + directive)
+[rank0]: wandb.errors.errors.UsageError: api_key not configured (no-tty). call wandb.login(key=[your_api_key])
+[2024-11-13 17:15:30,728] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1247227
+[2024-11-13 17:15:30,728] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1247228
+[2024-11-13 17:15:31,109] [ERROR] [launch.py:321:sigkill_handler] ['/data/jiangyy/miniconda3/envs/dojo/bin/python', '-u', 'main_train.py', '--local_rank=1', '--train_data_path', '/data/jiangyy/LLM-Dojo/data/sft_data.jsonl', '--model_name_or_path', '/data/jiangyy/Qwen2-7B', '--max_len', '1024', '--num_train_epochs', '604800', '--per_device_train_batch_size', '8', '--per_device_eval_batch_size', '1', '--gradient_accumulation_steps', '4', '--task_type', 'sft', '--train_mode', 'qlora', '--output_dir', '.', '--save_strategy', 'steps', '--save_steps', '500', '--save_total_limit', '5', '--learning_rate', '2e-6', '--warmup_steps', '10', '--logging_steps', '1', '--lr_scheduler_type', 'cosine_with_min_lr', '--gradient_checkpointing', 'True', '--report_to', 'wandb', '--deepspeed', './train_args/deepspeed_config/ds_config_zero2.json', '--bf16', 'True'] exits with return code = 1

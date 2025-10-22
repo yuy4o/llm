@@ -1,0 +1,83 @@
+INFO 08-07 11:24:16 [__init__.py:244] Automatically detected platform cuda.
+INFO 08-07 11:24:19 [api_server.py:1395] vLLM API server version 0.9.2
+INFO 08-07 11:24:19 [cli_args.py:325] non-default args: {'port': 12001, 'api_key': 'empty', 'model': '/data1/jiangyy/Qwen3-30B-A3B-FP8', 'trust_remote_code': True, 'gpu_memory_utilization': 0.5}
+INFO 08-07 11:24:25 [config.py:841] This model supports multiple tasks: {'generate', 'embed', 'reward', 'classify'}. Defaulting to 'generate'.
+INFO 08-07 11:24:25 [config.py:1472] Using max model len 40960
+WARNING 08-07 11:24:25 [arg_utils.py:1531] Chunked prefill is enabled by default for models with max_model_len > 32K. Chunked prefill might not work with some features or models. If you encounter any issues, please disable by launching with --enable-chunked-prefill=False.
+INFO 08-07 11:24:25 [config.py:2285] Chunked prefill is enabled with max_num_batched_tokens=2048.
+INFO 08-07 11:24:25 [api_server.py:268] Started engine process with PID 2294385
+INFO 08-07 11:24:29 [__init__.py:244] Automatically detected platform cuda.
+INFO 08-07 11:24:31 [llm_engine.py:230] Initializing a V0 LLM engine (v0.9.2) with config: model='/data1/jiangyy/Qwen3-30B-A3B-FP8', speculative_config=None, tokenizer='/data1/jiangyy/Qwen3-30B-A3B-FP8', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=fp8, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='xgrammar', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=None, served_model_name=/data1/jiangyy/Qwen3-30B-A3B-FP8, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":[],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":false,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":256,"local_cache_dir":null}, use_cached_outputs=True, 
+INFO 08-07 11:24:31 [cuda.py:363] Using Flash Attention backend.
+INFO 08-07 11:24:42 [parallel_state.py:1076] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 08-07 11:24:42 [model_runner.py:1171] Starting to load model /data1/jiangyy/Qwen3-30B-A3B-FP8...
+WARNING 08-07 11:24:42 [fp8.py:488] CutlassBlockScaledGroupedGemm not supported on the current platform.
+INFO 08-07 11:25:00 [default_loader.py:272] Loading weights took 16.91 seconds
+WARNING 08-07 11:25:00 [marlin_utils_fp8.py:82] Your GPU does not have native support for FP8 computation but FP8 quantization is being used. Weight-only FP8 compression will be used leveraging the Marlin kernel. This may degrade performance for compute-heavy workloads.
+INFO 08-07 11:25:02 [model_runner.py:1203] Model loading took 29.4988 GiB and 19.671328 seconds
+WARNING 08-07 11:25:03 [fused_moe.py:690] Using default MoE config. Performance might be sub-optimal! Config file not found at /data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/model_executor/layers/fused_moe/configs/E=128,N=8192,device_name=NVIDIA_A800_80GB_PCIe.json
+INFO 08-07 11:25:03 [marlin_utils.py:346] You are running Marlin kernel with bf16 on GPUs before SM90. You can consider change to fp16 to achieve better performance if possible.
+INFO 08-07 11:25:03 [worker.py:294] Memory profiling takes 0.67 seconds
+INFO 08-07 11:25:03 [worker.py:294] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.50) = 39.57GiB
+INFO 08-07 11:25:03 [worker.py:294] model weights take 29.50GiB; non_torch_memory takes 0.09GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 8.59GiB.
+INFO 08-07 11:25:03 [executor_base.py:113] # cuda blocks: 5861, # CPU blocks: 2730
+INFO 08-07 11:25:03 [executor_base.py:118] Maximum concurrency for 40960 tokens per request: 2.29x
+INFO 08-07 11:25:06 [model_runner.py:1513] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 08-07 11:25:23 [model_runner.py:1671] Graph capturing finished in 17 secs, took 0.52 GiB
+INFO 08-07 11:25:23 [llm_engine.py:428] init engine (profile, create kv cache, warmup model) took 20.27 seconds
+WARNING 08-07 11:25:23 [config.py:1392] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 08-07 11:25:23 [serving_chat.py:125] Using default chat sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+INFO 08-07 11:25:23 [serving_completion.py:72] Using default completion sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+INFO 08-07 11:25:23 [api_server.py:1457] Starting vLLM API server 0 on http://0.0.0.0:12001
+INFO 08-07 11:25:23 [launcher.py:29] Available routes are:
+INFO 08-07 11:25:23 [launcher.py:37] Route: /openapi.json, Methods: HEAD, GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /docs, Methods: HEAD, GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /redoc, Methods: HEAD, GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /health, Methods: GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /load, Methods: GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /ping, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /ping, Methods: GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /tokenize, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /detokenize, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/models, Methods: GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /version, Methods: GET
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/chat/completions, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/completions, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/embeddings, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /pooling, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /classify, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /score, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/score, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/audio/transcriptions, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/audio/translations, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /rerank, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v1/rerank, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /v2/rerank, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /invocations, Methods: POST
+INFO 08-07 11:25:23 [launcher.py:37] Route: /metrics, Methods: GET
+INFO:     172.27.221.3:57698 - "GET /v1/models HTTP/1.1" 200 OK
+INFO 08-07 11:25:55 [chat_utils.py:444] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+ERROR 08-07 11:25:55 [serving_chat.py:222] Error in preprocessing prompt inputs
+ERROR 08-07 11:25:55 [serving_chat.py:222] Traceback (most recent call last):
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/entrypoints/openai/serving_chat.py", line 205, in create_chat_completion
+ERROR 08-07 11:25:55 [serving_chat.py:222]     ) = await self._preprocess_chat(
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/entrypoints/openai/serving_engine.py", line 837, in _preprocess_chat
+ERROR 08-07 11:25:55 [serving_chat.py:222]     prompt_inputs = await self._tokenize_prompt_input_async(
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+ERROR 08-07 11:25:55 [serving_chat.py:222]     result = self.fn(*self.args, **self.kwargs)
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/entrypoints/openai/serving_engine.py", line 592, in _tokenize_prompt_input
+ERROR 08-07 11:25:55 [serving_chat.py:222]     return next(
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/entrypoints/openai/serving_engine.py", line 616, in _tokenize_prompt_inputs
+ERROR 08-07 11:25:55 [serving_chat.py:222]     yield self._normalize_prompt_text_to_input(
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/entrypoints/openai/serving_engine.py", line 499, in _normalize_prompt_text_to_input
+ERROR 08-07 11:25:55 [serving_chat.py:222]     return self._validate_input(request, input_ids, input_text)
+ERROR 08-07 11:25:55 [serving_chat.py:222]   File "/data1/jiangyy/uvs/python310/.venv/lib/python3.10/site-packages/vllm/entrypoints/openai/serving_engine.py", line 569, in _validate_input
+ERROR 08-07 11:25:55 [serving_chat.py:222]     raise ValueError(
+ERROR 08-07 11:25:55 [serving_chat.py:222] ValueError: This model's maximum context length is 40960 tokens. However, you requested 110033 tokens (9 in the messages, 110024 in the completion). Please reduce the length of the messages or completion.
+INFO:     172.27.221.3:57698 - "POST /v1/chat/completions HTTP/1.1" 400 Bad Request
+INFO:     172.27.221.3:58152 - "GET /v1/models HTTP/1.1" 200 OK
+INFO 08-07 11:26:10 [logger.py:43] Received request chatcmpl-bfe77a09aaea41aba55d7e919995c1b9: prompt: '<|im_start|>user\nhi<|im_end|>\n<|im_start|>assistant\n', params: SamplingParams(n=1, presence_penalty=0.0, frequency_penalty=0.0, repetition_penalty=1.0, temperature=0.7, top_p=0.95, top_k=20, min_p=0.0, seed=None, stop=[], stop_token_ids=[], bad_words=[], include_stop_str_in_output=False, ignore_eos=False, max_tokens=30000, min_tokens=0, logprobs=None, prompt_logprobs=None, skip_special_tokens=True, spaces_between_special_tokens=True, truncate_prompt_tokens=None, guided_decoding=None, extra_args=None), prompt_token_ids: None, prompt_embeds shape: None, lora_request: None, prompt_adapter_request: None.
+INFO 08-07 11:26:10 [engine.py:317] Added request chatcmpl-bfe77a09aaea41aba55d7e919995c1b9.
+INFO 08-07 11:26:10 [metrics.py:417] Avg prompt throughput: 1.3 tokens/s, Avg generation throughput: 0.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.
+INFO:     172.27.221.3:58152 - "POST /v1/chat/completions HTTP/1.1" 200 OK
