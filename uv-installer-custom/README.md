@@ -1,0 +1,1 @@
+change source to accelerate installation of uv shell script (from https://github.com/Wangnov/uv-custom)

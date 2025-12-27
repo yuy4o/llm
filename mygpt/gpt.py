@@ -206,7 +206,7 @@ if __name__ == "__main__":
         # 模型推理
         runner = transformer(decoder_num=3, head_num=4, d = 256, dk = 64, dff = 512)
         runner.load_state_dict(torch.load('weights.pth'))
-        runner.eval()
+        runner.eval()``
         run_model('')
     elif args.train:
         model = transformer(decoder_num=3, head_num=4, d = 256, dk = 64, dff = 512)

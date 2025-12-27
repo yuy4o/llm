@@ -1,0 +1,239 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 VLLM_USE_V1=0 vllm serve /dockpath/Kimi-Linear-48B-A3B-Instruct --dtype auto --api-key empty --port 12001 --trust-remote-code --tensor-parallel-size 4 --pipeline-parallel-size 1 --served-model-name Qwen3-Coder --max-model-len 4096 --gpu_memory_utilization 0.9
+INFO 11-30 06:28:22 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:22 [api_server.py:1977] vLLM API server version 0.11.2
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:22 [utils.py:253] non-default args: {'model_tag': '/dockpath/Kimi-Linear-48B-A3B-Instruct', 'port': 12001, 'api_key': ['empty'], 'model': '/dockpath/Kimi-Linear-48B-A3B-Instruct', 'trust_remote_code': True, 'max_model_len': 4096, 'served_model_name': ['Qwen3-Coder'], 'tensor_parallel_size': 4}
+[1;36m(APIServer pid=30750)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:22 [model.py:631] Resolved architecture: KimiLinearForCausalLM
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:22 [model.py:1745] Using max model len 4096
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:22 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:22 [config.py:308] Disabling cascade attention since it is not supported for hybrid models.
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:24 [config.py:432] Setting attention block size to 512 tokens to ensure that attention page size is >= mamba page size.
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:28:24 [config.py:456] Padding mamba page size by 8.68% to ensure that mamba page size and attention page size are exactly equal.
+[1;36m(APIServer pid=30750)[0;0m [2025-11-30 06:28:24] INFO tokenization_kimi.py:119: Reloaded tiktoken model from /dockpath/Kimi-Linear-48B-A3B-Instruct/tiktoken.model
+[1;36m(APIServer pid=30750)[0;0m [2025-11-30 06:28:24] INFO tokenization_kimi.py:125: #words: 163842 - BOS ID: 163584 - EOS ID: 163585
+[1;36m(APIServer pid=30750)[0;0m WARNING 11-30 06:28:24 [tokenizer.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:28:31 [core.py:93] Initializing a V1 LLM engine (v0.11.2) with config: model='/dockpath/Kimi-Linear-48B-A3B-Instruct', speculative_config=None, tokenizer='/dockpath/Kimi-Linear-48B-A3B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen3-Coder, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'use_inductor': None, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {}, 'max_cudagraph_capture_size': 512, 'local_cache_dir': None}
+[1;36m(EngineCore_DP0 pid=30857)[0;0m WARNING 11-30 06:28:31 [multiproc_executor.py:869] Reducing Torch parallelism from 24 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 11-30 06:28:42 [parallel_state.py:1208] world_size=4 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:51201 backend=nccl
+INFO 11-30 06:28:43 [parallel_state.py:1208] world_size=4 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:51201 backend=nccl
+INFO 11-30 06:28:43 [parallel_state.py:1208] world_size=4 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:51201 backend=nccl
+INFO 11-30 06:28:44 [parallel_state.py:1208] world_size=4 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:51201 backend=nccl
+[rank1]:[W1130 06:28:45.242776577 ProcessGroupGloo.cpp:516] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[rank2]:[W1130 06:28:45.392271878 ProcessGroupGloo.cpp:516] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[rank3]:[W1130 06:28:45.536902313 ProcessGroupGloo.cpp:516] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[rank0]:[W1130 06:28:45.548300611 ProcessGroupGloo.cpp:516] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+INFO 11-30 06:28:45 [pynccl.py:111] vLLM is using nccl==2.27.5
+WARNING 11-30 06:28:48 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 11-30 06:28:48 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 11-30 06:28:48 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 11-30 06:28:48 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 11-30 06:28:48 [custom_all_reduce.py:154] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 11-30 06:28:48 [custom_all_reduce.py:154] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 11-30 06:28:48 [custom_all_reduce.py:154] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 11-30 06:28:48 [custom_all_reduce.py:154] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+INFO 11-30 06:28:51 [parallel_state.py:1394] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+INFO 11-30 06:28:51 [parallel_state.py:1394] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+INFO 11-30 06:28:51 [parallel_state.py:1394] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+INFO 11-30 06:28:51 [parallel_state.py:1394] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:28:52 [gpu_model_runner.py:3259] Starting to load model /dockpath/Kimi-Linear-48B-A3B-Instruct...
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:28:53 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP3 pid=30964)[0;0m INFO 11-30 06:28:53 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP1 pid=30962)[0;0m INFO 11-30 06:28:53 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP2 pid=30963)[0;0m INFO 11-30 06:28:53 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP2 pid=30963)[0;0m INFO 11-30 06:28:54 [cuda.py:418] Valid backends: ['TRITON_MLA']
+[1;36m(Worker_TP3 pid=30964)[0;0m INFO 11-30 06:28:54 [cuda.py:418] Valid backends: ['TRITON_MLA']
+[1;36m(Worker_TP2 pid=30963)[0;0m INFO 11-30 06:28:54 [cuda.py:427] Using TRITON_MLA backend.
+[1;36m(Worker_TP3 pid=30964)[0;0m INFO 11-30 06:28:54 [cuda.py:427] Using TRITON_MLA backend.
+[1;36m(Worker_TP1 pid=30962)[0;0m INFO 11-30 06:28:54 [cuda.py:418] Valid backends: ['TRITON_MLA']
+[1;36m(Worker_TP1 pid=30962)[0;0m INFO 11-30 06:28:54 [cuda.py:427] Using TRITON_MLA backend.
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:28:54 [cuda.py:418] Valid backends: ['TRITON_MLA']
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:28:54 [cuda.py:427] Using TRITON_MLA backend.
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:   0% Completed | 0/20 [00:00<?, ?it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:   5% Completed | 1/20 [00:00<00:11,  1.71it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  10% Completed | 2/20 [00:01<00:10,  1.78it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  15% Completed | 3/20 [00:01<00:09,  1.74it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  20% Completed | 4/20 [00:02<00:09,  1.72it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  25% Completed | 5/20 [00:02<00:08,  1.68it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  30% Completed | 6/20 [00:03<00:08,  1.68it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  35% Completed | 7/20 [00:03<00:06,  1.93it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  40% Completed | 8/20 [00:06<00:14,  1.22s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  45% Completed | 9/20 [00:15<00:38,  3.48s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  50% Completed | 10/20 [00:21<00:43,  4.38s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  55% Completed | 11/20 [00:27<00:43,  4.80s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  60% Completed | 12/20 [00:33<00:42,  5.33s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  65% Completed | 13/20 [00:38<00:36,  5.19s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  70% Completed | 14/20 [00:39<00:22,  3.81s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  75% Completed | 15/20 [00:39<00:14,  2.86s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  80% Completed | 16/20 [00:42<00:10,  2.75s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  85% Completed | 17/20 [00:43<00:06,  2.11s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  90% Completed | 18/20 [00:43<00:03,  1.67s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards:  95% Completed | 19/20 [00:44<00:01,  1.36s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards: 100% Completed | 20/20 [00:44<00:00,  1.14s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Loading safetensors checkpoint shards: 100% Completed | 20/20 [00:44<00:00,  2.25s/it]
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:29:41 [default_loader.py:314] Loading weights took 45.00 seconds
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:29:42 [gpu_model_runner.py:3338] Model loading took 23.0747 GiB memory and 49.070074 seconds
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:29:49 [backends.py:631] Using cache directory: /root/.cache/vllm/torch_compile_cache/bbe19602c8/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:29:49 [backends.py:647] Dynamo bytecode transform time: 6.14 s
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:30:02 [backends.py:251] Cache the graph for dynamic shape for later use
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:30:42 [shm_broadcast.py:501] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:30:46 [backends.py:282] Compiling a graph for dynamic shape takes 57.25 s
+[1;36m(Worker_TP1 pid=30962)[0;0m WARNING 11-30 06:30:52 [fused_moe.py:886] Using default MoE config. Performance might be sub-optimal! Config file not found at ['/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=256,device_name=NVIDIA_A100-PCIE-40GB.json']
+[1;36m(Worker_TP3 pid=30964)[0;0m WARNING 11-30 06:30:52 [fused_moe.py:886] Using default MoE config. Performance might be sub-optimal! Config file not found at ['/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=256,device_name=NVIDIA_A100-PCIE-40GB.json']
+[1;36m(Worker_TP0 pid=30961)[0;0m WARNING 11-30 06:30:52 [fused_moe.py:886] Using default MoE config. Performance might be sub-optimal! Config file not found at ['/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=256,device_name=NVIDIA_A100-PCIE-40GB.json']
+[1;36m(Worker_TP2 pid=30963)[0;0m WARNING 11-30 06:30:52 [fused_moe.py:886] Using default MoE config. Performance might be sub-optimal! Config file not found at ['/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=256,device_name=NVIDIA_A100-PCIE-40GB.json']
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:30:52 [monitor.py:34] torch.compile takes 63.39 s in total
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:30:55 [gpu_worker.py:359] Available KV cache memory: 10.81 GiB
+[1;36m(EngineCore_DP0 pid=30857)[0;0m WARNING 11-30 06:30:57 [kv_cache_utils.py:979] Add 1 padding layers, may waste at most 5.00% KV cache memory
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:30:57 [kv_cache_utils.py:1229] GPU KV cache size: 359,424 tokens
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:30:57 [kv_cache_utils.py:1234] Maximum concurrency for 4,096 tokens per request: 255.45x
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:30:57 [kv_cache_utils.py:1234] Maximum concurrency for 4,096 tokens per request: 255.45x
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:30:57 [kv_cache_utils.py:1234] Maximum concurrency for 4,096 tokens per request: 255.45x
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:30:57 [kv_cache_utils.py:1234] Maximum concurrency for 4,096 tokens per request: 255.45x
+[1;36m(Worker_TP2 pid=30963)[0;0m WARNING 11-30 06:30:57 [gpu_model_runner.py:4507] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[1;36m(Worker_TP1 pid=30962)[0;0m WARNING 11-30 06:30:57 [gpu_model_runner.py:4507] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[1;36m(Worker_TP3 pid=30964)[0;0m WARNING 11-30 06:30:57 [gpu_model_runner.py:4507] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[1;36m(Worker_TP0 pid=30961)[0;0m WARNING 11-30 06:30:57 [gpu_model_runner.py:4507] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[1;36m(Worker_TP0 pid=30961)[0;0m 
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 1/51 [00:01<01:22,  1.65s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:02<01:05,  1.33s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:03<00:58,  1.22s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 4/51 [00:05<01:13,  1.56s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:07<01:04,  1.40s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 6/51 [00:08<00:58,  1.30s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:09<00:54,  1.23s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:10<00:50,  1.19s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:11<00:49,  1.17s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:11<00:34,  1.19it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▎       | 12/51 [00:11<00:19,  2.03it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:11<00:12,  2.99it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 16/51 [00:12<00:08,  4.05it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:12<00:07,  4.61it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 19/51 [00:13<00:11,  2.81it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:13<00:09,  3.26it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:13<00:07,  3.86it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:13<00:05,  5.12it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:14<00:04,  6.27it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 27/51 [00:14<00:03,  7.27it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:14<00:02,  8.01it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 30/51 [00:15<00:05,  3.82it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 31/51 [00:15<00:05,  3.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:15<00:04,  4.01it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▍   | 33/51 [00:15<00:03,  4.66it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 34/51 [00:15<00:03,  5.42it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:16<00:02,  6.16it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 37/51 [00:16<00:01,  7.39it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:16<00:01,  8.25it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:16<00:01,  8.00it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:17<00:03,  2.71it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 42/51 [00:17<00:02,  3.31it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:17<00:02,  3.97it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:18<00:01,  4.70it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:18<00:01,  5.47it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|█████████ | 46/51 [00:18<00:00,  6.19it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:18<00:00,  6.65it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 48/51 [00:18<00:00,  7.31it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:18<00:00,  7.89it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 50/51 [00:18<00:00,  8.34it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:32<00:00,  4.05s/it]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:32<00:00,  1.59it/s]
+[1;36m(Worker_TP0 pid=30961)[0;0m INFO 11-30 06:31:30 [gpu_model_runner.py:4244] Graph capturing finished in 33 secs, took 1.52 GiB
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:31:30 [core.py:250] init engine (profile, create kv cache, warmup model) took 108.34 seconds
+[1;36m(EngineCore_DP0 pid=30857)[0;0m [2025-11-30 06:31:31] INFO tokenization_kimi.py:119: Reloaded tiktoken model from /dockpath/Kimi-Linear-48B-A3B-Instruct/tiktoken.model
+[1;36m(EngineCore_DP0 pid=30857)[0;0m [2025-11-30 06:31:31] INFO tokenization_kimi.py:125: #words: 163842 - BOS ID: 163584 - EOS ID: 163585
+[1;36m(EngineCore_DP0 pid=30857)[0;0m WARNING 11-30 06:31:31 [tokenizer.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [api_server.py:1725] Supported tasks: ['generate']
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [api_server.py:2052] Starting vLLM API server 0 on http://0.0.0.0:12001
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:38] Available routes are:
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /openapi.json, Methods: GET, HEAD
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /docs, Methods: GET, HEAD
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /redoc, Methods: GET, HEAD
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /health, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /load, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /tokenize, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /detokenize, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/models, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /version, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/responses, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/messages, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/completions, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/embeddings, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /pooling, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /classify, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /score, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/score, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/audio/transcriptions, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/audio/translations, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /rerank, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v1/rerank, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /v2/rerank, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /ping, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /ping, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /invocations, Methods: POST
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:31:31 [launcher.py:46] Route: /metrics, Methods: GET
+[1;36m(APIServer pid=30750)[0;0m INFO:     Started server process [30750]
+[1;36m(APIServer pid=30750)[0;0m INFO:     Waiting for application startup.
+[1;36m(APIServer pid=30750)[0;0m INFO:     Application startup complete.
+[1;36m(APIServer pid=30750)[0;0m INFO:     172.27.221.3:33264 - "GET /v1/models HTTP/1.1" 200 OK
+[1;36m(APIServer pid=30750)[0;0m [2025-11-30 06:32:34] INFO tokenization_kimi.py:119: Reloaded tiktoken model from /dockpath/Kimi-Linear-48B-A3B-Instruct/tiktoken.model
+[1;36m(APIServer pid=30750)[0;0m [2025-11-30 06:32:34] INFO tokenization_kimi.py:125: #words: 163842 - BOS ID: 163584 - EOS ID: 163585
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:32:35 [chat_utils.py:557] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[1;36m(EngineCore_DP0 pid=30857)[0;0m INFO 11-30 06:33:35 [shm_broadcast.py:501] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:33:52 [loggers.py:236] Engine 000: Avg prompt throughput: 1.4 tokens/s, Avg generation throughput: 0.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=30750)[0;0m INFO:     172.27.221.3:33264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:34:02 [loggers.py:236] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 41.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=30750)[0;0m INFO 11-30 06:34:12 [loggers.py:236] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%

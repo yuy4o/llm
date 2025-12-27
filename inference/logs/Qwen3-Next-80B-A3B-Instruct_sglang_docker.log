@@ -1,0 +1,642 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 python -m sglang.launch_server --model  /dockpath/Qwen3-Next-80B-A3B-Instruct --host 0.0.0.0 --port 12001 --tp 4 --max-running-requests 4 --mem-fraction-static 0.98 --context-length 262144
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+youln-a100-4:9298:9298 [1] NCCL INFO cudaDriverVersion 12090
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9298:9298 [1] NCCL INFO Bootstrap: Using eth0:192.168.33.199<0>
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL version 2.27.3+cuda12.9
+youln-a100-4:9298:9298 [1] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. 
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL_IB_DISABLE set by environment to 1.
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9298:9298 [1] NCCL INFO NET/Socket : Using [0]eth0:192.168.33.199<0>
+youln-a100-4:9298:9298 [1] NCCL INFO Initialized NET plugin Socket
+youln-a100-4:9298:9298 [1] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9298:9298 [1] NCCL INFO Using network Socket
+youln-a100-4:9298:9298 [1] NCCL INFO ncclCommInitRank comm 0x10c78d40 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId b0 commId 0xaa03ce094c7e4dc6 - Init START
+youln-a100-4:9298:9298 [1] NCCL INFO RAS client listening socket at ::1<28028>
+youln-a100-4:9298:9298 [1] NCCL INFO Bootstrap timings total 0.016237 (create 0.000024, send 0.000084, recv 0.010503, ring 0.004345, delay 0.000000)
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 andyouln-a100-4:9297:9297 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9297:9297 [0] NCCL INFO Bootstrap: Using eth0:192.168.33.199<0>
+youln-a100-4:9297:9297 [0] NCCL INFO cudaDriverVersion 12090
+youln-a100-4:9297:9297 [0] NCCL INFO NCCL version 2.27.3+cuda12.9
+youln-a100-4:9297:9297 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. 
+youln-a100-4:9297:9297 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 1.
+youln-a100-4:9297:9297 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9297:9297 [0] NCCL INFO NET/Socket : Using [0]eth0:192.168.33.199<0>
+youln-a100-4:9297:9297 [0] NCCL INFO Initialized NET plugin Socket
+youln-a100-4:9297:9297 [0] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9297:9297 [0] NCCL INFO Using network Socket
+youln-a100-4:9297:9297 [0] NCCL INFO ncclCommInitRank comm 0x103ffb30 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId a0 commId 0xaa03ce094c7e4dc6 - Init START
+youln-a100-4:9297:9297 [0] NCCL INFO RAS client listening socket at ::1<28028>
+youln-a100-4:9297:9297 [0] NCCL INFO Bootstrap timings total 0.046690 (create 0.000026, send 0.000095, recv 0.030567, ring 0.015338, delay 0.000000)
+youln-a100-4:9297:9297 [0] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.
+youln-a100-4:9297:9297 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 andyouln-a100-4:9300:9300 [3] NCCL INFO cudaDriverVersion 12090
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9300:9300 [3] NCCL INFO Bootstrap: Using eth0:192.168.33.199<0>
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL version 2.27.3+cuda12.9
+youln-a100-4:9300:9300 [3] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. 
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL_IB_DISABLE set by environment to 1.
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9300:9300 [3] NCCL INFO NET/Socket : Using [0]eth0:192.168.33.199<0>
+youln-a100-4:9300:9300 [3] NCCL INFO Initialized NET plugin Socket
+youln-a100-4:9300:9300 [3] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9300:9300 [3] NCCL INFO Using network Socket
+youln-a100-4:9300:9300 [3] NCCL INFO ncclCommInitRank comm 0xddde570 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId d0 commId 0xaa03ce094c7e4dc6 - Init START
+youln-a100-4:9300:9300 [3] NCCL INFO RAS client listening socket at ::1<28028>
+youln-a100-4:9300:9300 [3] NCCL INFO Bootstrap timings total 0.027054 (create 0.000039, send 0.000116, recv 0.000586, ring 0.003734, delay 0.000000)
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress tyouln-a100-4:9299:9299 [2] NCCL INFO cudaDriverVersion 12090
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9299:9299 [2] NCCL INFO Bootstrap: Using eth0:192.168.33.199<0>
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL version 2.27.3+cuda12.9
+youln-a100-4:9299:9299 [2] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. 
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL_IB_DISABLE set by environment to 1.
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+youln-a100-4:9299:9299 [2] NCCL INFO NET/Socket : Using [0]eth0:192.168.33.199<0>
+youln-a100-4:9299:9299 [2] NCCL INFO Initialized NET plugin Socket
+youln-a100-4:9299:9299 [2] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9299:9299 [2] NCCL INFO Using network Socket
+youln-a100-4:9299:9299 [2] NCCL INFO ncclCommInitRank comm 0xe4dcdd0 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId c0 commId 0xaa03ce094c7e4dc6 - Init START
+youln-a100-4:9299:9299 [2] NCCL INFO RAS client listening socket at ::1<28028>
+youln-a100-4:9299:9299 [2] NCCL INFO Bootstrap timings total 0.005090 (create 0.000023, send 0.000076, recv 0.000175, ring 0.004222, delay 0.000000)
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and his message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and  3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
+youln-a100-4:9297:9297 [0] NCCL INFO comm 0x103ffb30 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+youln-a100-4:9297:9297 [0] NCCL INFO Channel 00/02 : 0 1 2 3
+youln-a100-4:9297:9297 [0] NCCL INFO Channel 01/02 : 0 1 2 3
+youln-a100-4:9297:9297 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+youln-a100-4:9297:9297 [0] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9297:9297 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so. 
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO Check P2P Type isAllDirectP2p 0 directMode 0
+youln-a100-4:9297:10497 [0] NCCL INFO [Proxy Service] Device 0 CPU core 27
+youln-a100-4:9297:10503 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 25
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
+youln-a100-4:9297:9297 [0] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:9297 [0] NCCL INFO Connected all trees
+youln-a100-4:9297:10505 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 44
+youln-a100-4:9297:9297 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+youln-a100-4:9297:9297 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+youln-a100-4:9297:9297 [0] NCCL INFO CC Off, workFifoBytes 1048576
+youln-a100-4:9297:9297 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so. Using internal tuner plugin.
+youln-a100-4:9297:9297 [0] NCCL INFO ncclCommInitRank comm 0x103ffb30 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId a0 commId 0xaa03ce094c7e4dc6 - Init COMPLETE
+youln-a100-4:9297:9297 [0] NCCL INFO Init timings - ncclCommInitRank: rank 0 nranks 4 total 2.50 (kernels 1.33, alloc 0.00, bootstrap 0.05, allgathers 0.01, topo 0.08, graphs 0.00, connections 1.03, rest 0.00)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
+youln-a100-4:9300:9300 [3] NCCL INFO comm 0xddde570 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+youln-a100-4:9300:9300 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+youln-a100-4:9300:9300 [3] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9300:9300 [3] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so. 
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10502 [3] NCCL INFO [Proxy Service] Device 3 CPU core 21
+youln-a100-4:9300:10504 [3] NCCL INFO [Proxy Service UDS] Device 3 CPU core 8
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO Channel 00 : 3[3] -> 0[0] via SHM/direct/direct
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO Channel 01 : 3[3] -> 0[0] via SHM/direct/direct
+youln-a100-4:9300:9300 [3] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO Channel 00 : 3[3] -> 2[2] via SHM/direct/direct
+youln-a100-4:9300:9300 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:9300 [3] NCCL INFO Channel 01 : 3[3] -> 2[2] via SHM/direct/direct
+youln-a100-4:9300:9300 [3] NCCL INFO Connected all trees
+youln-a100-4:9300:10507 [3] NCCL INFO [Proxy Progress] Device 3 CPU core 11
+youln-a100-4:9300:9300 [3] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+youln-a100-4:9300:9300 [3] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+youln-a100-4:9300:9300 [3] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so. Using internal tuner plugin.
+youln-a100-4:9300:9300 [3] NCCL INFO ncclCommInitRank comm 0xddde570 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId d0 commId 0xaa03ce094c7e4dc6 - Init COMPLETE
+youln-a100-4:9300:9300 [3] NCCL INFO Init timings - ncclCommInitRank: rank 3 nranks 4 total 2.24 (kernels 1.09, alloc 0.00, bootstrap 0.03, allgathers 0.01, topo 0.08, graphs 0.00, connections 1.03, rest 0.00)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
+youln-a100-4:9299:9299 [2] NCCL INFO comm 0xe4dcdd0 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+youln-a100-4:9299:9299 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
+youln-a100-4:9299:9299 [2] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9299:9299 [2] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so. 
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10498 [2] NCCL INFO [Proxy Service] Device 2 CPU core 32
+youln-a100-4:9299:10499 [2] NCCL INFO [Proxy Service UDS] Device 2 CPU core 44
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO Channel 00 : 2[2] -> 3[3] via SHM/direct/direct
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO Channel 01 : 2[2] -> 3[3] via SHM/direct/direct
+youln-a100-4:9299:9299 [2] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO Channel 00 : 2[2] -> 1[1] via SHM/direct/direct
+youln-a100-4:9299:9299 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:9299 [2] NCCL INFO Channel 01 : 2[2] -> 1[1] via SHM/direct/direct
+youln-a100-4:9299:9299 [2] NCCL INFO Connected all trees
+youln-a100-4:9299:10508 [2] NCCL INFO [Proxy Progress] Device 2 CPU core 45
+youln-a100-4:9299:9299 [2] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+youln-a100-4:9299:9299 [2] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+youln-a100-4:9299:9299 [2] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so. Using internal tuner plugin.
+youln-a100-4:9299:9299 [2] NCCL INFO ncclCommInitRank comm 0xe4dcdd0 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId c0 commId 0xaa03ce094c7e4dc6 - Init COMPLETE
+youln-a100-4:9299:9299 [2] NCCL INFO Init timings - ncclCommInitRank: rank 2 nranks 4 total 2.24 (kernels 1.10, alloc 0.02, bootstrap 0.01, allgathers 0.01, topo 0.08, graphs 0.00, connections 1.03, rest 0.00)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+ 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
+youln-a100-4:9298:9298 [1] NCCL INFO comm 0x10c78d40 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+youln-a100-4:9298:9298 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
+youln-a100-4:9298:9298 [1] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9298:9298 [1] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so. 
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10500 [1] NCCL INFO [Proxy Service] Device 1 CPU core 9
+youln-a100-4:9298:10501 [1] NCCL INFO [Proxy Service UDS] Device 1 CPU core 13
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO Channel 00 : 1[1] -> 2[2] via SHM/direct/direct
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO Channel 01 : 1[1] -> 2[2] via SHM/direct/direct
+youln-a100-4:9298:9298 [1] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
+youln-a100-4:9298:9298 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:9298 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
+youln-a100-4:9298:9298 [1] NCCL INFO Connected all trees
+youln-a100-4:9298:10506 [1] NCCL INFO [Proxy Progress] Device 1 CPU core 0
+youln-a100-4:9298:9298 [1] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+youln-a100-4:9298:9298 [1] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+youln-a100-4:9298:9298 [1] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so. Using internal tuner plugin.
+youln-a100-4:9298:9298 [1] NCCL INFO ncclCommInitRank comm 0x10c78d40 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId b0 commId 0xaa03ce094c7e4dc6 - Init COMPLETE
+youln-a100-4:9298:9298 [1] NCCL INFO Init timings - ncclCommInitRank: rank 1 nranks 4 total 2.24 (kernels 1.09, alloc 0.02, bootstrap 0.02, allgathers 0.01, topo 0.08, graphs 0.00, connections 1.03, rest 0.00)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[2025-11-30 13:40:32] INFO:     127.0.0.1:39758 - "GET /get_model_info HTTP/1.1" 200 OK
+youln-a100-4:9300:9300 [3] NCCL INFO Comm config Blocking set to 1
+youln-a100-4:9300:10669 [3] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9300:10669 [3] NCCL INFO Using network Socket
+youln-a100-4:9300:10669 [3] NCCL INFO ncclCommInitRankConfig comm 0x56655390 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId d0 commId 0xd0494288acf675fb - Init START
+youln-a100-4:9300:10669 [3] NCCL INFO Bootstrap timings total 0.141764 (create 0.000033, send 0.000094, recv 0.002383, ring 0.139117, delay 0.000000)
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL Iyouln-a100-4:9297:9297 [0] NCCL INFO Comm config Blocking set to 1
+youln-a100-4:9297:10667 [0] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9297:10667 [0] NCCL INFO Using network Socket
+youln-a100-4:9297:10667 [0] NCCL INFO ncclCommInitRankConfig comm 0x592ca5e0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId a0 commId 0xd0494288acf675fb - Init START
+youln-a100-4:9297:10667 [0] NCCL INFO Bootstrap timings total 0.150268 (create 0.000023, send 0.000097, recv 0.149814, ring 0.000063, delay 0.000000)
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL Iyouln-a100-4:9299:9299 [2] NCCL INFO Comm config Blocking set to 1
+youln-a100-4:9299:10668 [2] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9299:10668 [2] NCCL INFO Using network Socket
+youln-a100-4:9299:10668 [2] NCCL INFO ncclCommInitRankConfig comm 0x57d85f80 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId c0 commId 0xd0494288acf675fb - Init START
+youln-a100-4:9299:10668 [2] NCCL INFO Bootstrap timings total 0.145478 (create 0.000022, send 0.000075, recv 0.006071, ring 0.000095, delay 0.000000)
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL Iyouln-a100-4:9298:9298 [1] NCCL INFO Comm config Blocking set to 1
+youln-a100-4:9298:10670 [1] NCCL INFO Assigned NET plugin Socket to comm
+youln-a100-4:9298:10670 [1] NCCL INFO Using network Socket
+youln-a100-4:9298:10670 [1] NCCL INFO ncclCommInitRankConfig comm 0x5aad2910 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId b0 commId 0xd0494288acf675fb - Init START
+youln-a100-4:9298:10670 [1] NCCL INFO Bootstrap timings total 0.000949 (create 0.000031, send 0.000107, recv 0.000483, ring 0.000117, delay 0.000000)
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO comm 0x57d85f80 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+youln-a100-4:9299:10668 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
+youln-a100-4:9299:10668 [2] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 [2] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9299:10668 NFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO comm 0x5aad2910 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+youln-a100-4:9298:10670 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
+youln-a100-4:9298:10670 [1] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 [1] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9298:10670 NFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO comm 0x592ca5e0 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+youln-a100-4:9297:10667 [0] NCCL INFO Channel 00/02 : 0 1 2 3
+youln-a100-4:9297:10667 [0] NCCL INFO Channel 01/02 : 0 1 2 3
+youln-a100-4:9297:10667 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+youln-a100-4:9297:10667 [0] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9297:10667 [0] NCCL INFO P2P is dNFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 0. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 3 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 1 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 2 and 3. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO comm 0x56655390 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+youln-a100-4:9300:10669 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+youln-a100-4:9300:10669 [3] NCCL INFO P2P Chunksize set to 131072
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 1. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:10669 [3] NCCL INFO P2P is disabled between connected GPUs 0 and 2. You can repress this message with NCCL_IGNORE_DISABLED_P2P=1.
+youln-a100-4:9300:1066[2025-11-30 13:40:34] INFO:     127.0.0.1:39768 - "POST /generate HTTP/1.1" 200 OK

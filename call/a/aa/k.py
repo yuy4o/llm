@@ -1,3 +1,0 @@
-def k():
-    print("kkkkkkkkk")
-    
