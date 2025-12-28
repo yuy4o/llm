@@ -1,0 +1,26 @@
+models:
+  - type: main
+    engine: openai
+    model: Qwen3-14B
+    parameters:
+      base_url: http://localhost:12000/v1
+      api_key: empty
+
+  - type: content_safety
+    engine: openai
+    model: Qwen3-14B
+    parameters:
+      base_url: http://localhost:12000/v1
+      api_key: empty
+
+rails:
+  input:
+    flows:
+      - content safety check input $model=content_safety
+  output:
+    flows:
+      - content safety check output $model=content_safety
+    streaming:
+      enabled: True
+      chunk_size: 200
+      context_size: 50
