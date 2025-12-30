@@ -1,0 +1,3 @@
+/Users/yj522/test2/build/CMakeFiles/ooo.dir
+/Users/yj522/test2/build/CMakeFiles/edit_cache.dir
+/Users/yj522/test2/build/CMakeFiles/rebuild_cache.dir

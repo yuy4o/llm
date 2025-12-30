@@ -1,0 +1,30 @@
+version: '3'
+services:
+  xinference:
+    image: "xprobe/xinference:latest"
+    container_name: xinference
+    ports:
+      - "9998:9997"
+    volumes:
+      - ./data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - XINFERENCE_HOME=/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]         
+    restart: always
+    networks:
+      extnetwork:
+       ipv4_address: 172.21.0.27
+# docker容器内网地址
+networks:
+  extnetwork:
+    name: awarenetwork
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16

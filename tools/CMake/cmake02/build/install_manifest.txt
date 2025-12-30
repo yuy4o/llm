@@ -1,0 +1,3 @@
+/Users/yj522/cmake02/include/hello/hello.h
+/Users/yj522/cmake02/lib/libhello.dylib
+/Users/yj522/cmake02/lib/libhello.a

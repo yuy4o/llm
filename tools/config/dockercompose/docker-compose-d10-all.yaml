@@ -1,0 +1,75 @@
+services:
+  d10-llm-chat:
+    container_name: d10-llm-chat-local
+    image: secidea/d10-llm:${D10_VERSION:-20241107}
+    cap_add:
+      - SYS_NICE
+    security_opt:
+      - seccomp=unconfined
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    ports:
+      - "8000:8000"
+    volumes:
+      - /opt/workspace/llm-secidea/d10:/opt/workspace/llm-secidea/d10
+      - /opt/logs:/opt/logs
+    restart: always
+    healthcheck:
+      test: curl --fail http://localhost:8000/v1/models || exit 1
+      interval: 10s
+      timeout: 20s
+      retries: 30
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: "nvidia"
+              device_ids: [ "0" ]
+              capabilities: [ "gpu" ]
+    networks:
+      - oscapdist_oscap-net
+    command: --model /opt/workspace/llm-secidea/d10 --served-model-name=d10 --port 8000 --max-model-len 10240  --gpu-memory-utilization 0.4 > /opt/logs/d10_llm.log 2>&1
+
+  d10-base:
+    container_name: d10-base-local
+    image: secidea/d10-base:${D10_VERSION:-20241107}
+    privileged: true
+    ports:
+      - "8080:8080"
+      - "7872:7872"
+    volumes:
+      - /opt/logs:/opt/logs
+      - /root/.secidea/events:/root/.secidea/events
+      - /opt/workspace/d10-data/plugins:/opt/workspace/d10-data/plugins
+      # - /opt/workspace/llm-secidea/llm-prompt-server:/opt/workspace/llm-secidea/llm-prompt-server
+      - prompt_config:/opt/workspace/llm-secidea/llm-prompt-server/config
+    command: /bin/bash -c "/opt/workspace/llm-secidea/start_d10_base_docker.sh"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    networks:
+      - oscapdist_oscap-net
+    stdin_open: true
+    tty: true
+    depends_on:
+      mysql:
+        condition: service_healthy
+      d10-llm-chat:
+        condition: service_healthy
+      d10-llm-cpl:
+        condition: service_healthy
+    environment:
+      - TZ=Asia/Shanghai  # 设置时区
+      - SECIDEA_LOG_LEVEL=INFO
+
+networks:
+  oscapdist_oscap-net:
+    external: true
+
+volumes:
+  prompt_config:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /opt/workspace/llm-secidea/llm-prompt-server/config

@@ -1,0 +1,28 @@
+name: C++ CI
+
+on:
+  workflow_dispatch
+jobs:
+  build-and-test:
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: install homebrew
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - name: install automake
+        run: brew install automake
+      - name: install libtool
+        run: brew install libtool
+      - name: clone cppunit
+        run: git clone git://anongit.freedesktop.org/git/libreoffice/cppunit/
+      - name: autogen.sh
+        run: ./cppunit/autogen.sh
+      - name: configure
+        run: ./cppunit/configure
+      - name: make
+        run: |
+          cd ./cppunit
+          make
+          make install

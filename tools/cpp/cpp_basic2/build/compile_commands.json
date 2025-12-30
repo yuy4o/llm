@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/yj522/test2/build",
+  "command": "/usr/bin/clang++ -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -o CMakeFiles/ooo.dir/cat.cpp.o -c /Users/yj522/test2/cat.cpp",
+  "file": "/Users/yj522/test2/cat.cpp"
+}
+]

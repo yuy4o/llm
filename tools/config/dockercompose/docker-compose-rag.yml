@@ -1,0 +1,27 @@
+version: '3'
+services:
+  rag-conv-assistant:
+    image: "rag-conv-assistant:v1-test"
+    container_name: rag-conv-assistant
+    ports:
+      - "8097:7666"
+      - "7032:7032"
+      - "7016:7016"
+    volumes:
+      - ./data/QANY_DB:/app/QANY_DB
+      - ./data/files:/app/files
+      - ./data/logs:/app/logs
+      - ./data/model_logs:/app/model_logs
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always
+    networks:
+      extnetwork:
+       ipv4_address: 172.21.0.13
+# docker容器内网地址
+networks:
+  extnetwork:
+    name: awarenetwork
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16

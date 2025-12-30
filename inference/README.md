@@ -65,3 +65,43 @@ CUDA_VISIBLE_DEVICES=0,2
 
 torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 316.00 MiB. GPU 1 has a total capacity of 39.38 GiB of which 293.81 MiB is free. Process 643064 has 33.81 GiB memory in use. Including non-PyTorch memory, this process has 5.25 GiB memory in use. Of the allocated memory 4.54 GiB is allocated by PyTorch, and 221.75 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
 ```
+---
+
+离线推理时，设定
+
+`model.eval()`：为了切换模型层（如 Dropout 和 Batch Normalization）的行为。在推理时，我们必须关闭 Dropout，否则每次生成的答案可能会因为随机丢弃神经元而变得不稳定。虽然 model.generate() 函数内部已经默认包含了类似 torch.no_grad() 的逻辑
+
+`with torch.no_grad()`：为了关闭梯度计算引擎
+
+```python
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+device = "cuda"
+
+tokenizer = AutoTokenizer.from_pretrained("THUDM/glm-4-9b-chat", trust_remote_code=True)
+
+query = "你好"
+
+inputs = tokenizer.apply_chat_template([{"role": "user", "content": query}],
+                                       add_generation_prompt=True,
+                                       tokenize=True,
+                                       return_tensors="pt",
+                                       return_dict=True
+                                       )
+
+inputs = inputs.to(device)
+model = AutoModelForCausalLM.from_pretrained(
+    "THUDM/glm-4-9b-chat",
+    torch_dtype=torch.bfloat16,
+    low_cpu_mem_usage=True,
+    trust_remote_code=True
+).to(device).eval()
+
+gen_kwargs = {"max_length": 2500, "do_sample": True, "top_k": 1}
+with torch.no_grad():
+    outputs = model.generate(**inputs, **gen_kwargs)
+    outputs = outputs[:, inputs['input_ids'].shape[1]:]
+    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```
+---
