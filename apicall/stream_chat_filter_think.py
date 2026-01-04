@@ -8,7 +8,7 @@ client = OpenAI(
 models = client.models.list()
 model = models.data[0].id
 
-stream = client.chat.completions.create(
+completion = client.chat.completions.create(
     model = model,
     temperature=0.6,
     max_tokens=2000,
@@ -22,7 +22,7 @@ stream = client.chat.completions.create(
 inside_think = False
 skip_leading_newline = True
 
-for chunk in stream:
+for chunk in completion:
     if not chunk.choices:
         continue
 
